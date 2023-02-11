@@ -14,6 +14,15 @@ def get_weather(city) -> Dict:
     return res.json()
 
 # TODO: try connecting to a another API! e.g. reddit (https://www.reddit.com/dev/api/)
+# URL = "http://www.7timer.info/bin/api.pl?lon=113.17&lat=23.09&product=astro&output=json"
+# response = requests.get(endpoint)
+# if response.status_code == 200:
+#     data = response.json()
+# print("Keys in the JSON object:")
+
+# for key in data.keys():
+#     print(key)
+
 
 def main():
     temp = get_weather("London")
