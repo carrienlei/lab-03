@@ -33,27 +33,30 @@ def send_mail(recipient: str, sender: str, subject: str, body: str) -> bool:
 
 def get_inbox(recipient: str) -> None:
     """
-    Retrieves information of the mail inbox from the server consisting of a list 
-    in the JSON body, such as: 
-    - body
-    - id 
+    Retrieves server information -- specifically the recipient, and prints the json information 
+    of the recipient. Json information includes:
     - recipient
-    - sender 
-    - subject
     
     Args:
         recipient (str): the recipient of the mail 
         
     Returns:
-        
-    
+        void return 
     """
     response = requests.get(f'{SERVER}/mail/inbox/{recipient}')
     pprint.pprint(response.json())
 
 def get_sent(sender: str) -> None:
     """
-    This will print out the given lists of mail entries that were sent to the server.
+    Retrieves server information -- specifically the list of senders, and prints the json information 
+    of the sender. Json information includes:
+    - sender
+    
+    Args:
+        sender (str): the sender of the mail
+        
+    Returns: 
+        void return
     
     """
     response = requests.get(f'{SERVER}/mail/sent/{sender}')
@@ -61,15 +64,32 @@ def get_sent(sender: str) -> None:
 
 def get_mail(mail_id: str) -> None:
     """
-    This will print out information of the dictionary of mail entries that has been received from the server. 
+    Retrieves server information -- specifically the list of mail IDs, and prints the information of 
+    the id. This will print out information of the dictionary of mail entries that has been received 
+    from the server. Json information includes:
+    - id
+    
+    Args:
+        mail_id (str): the unique id of each message
+        
+    Returns: 
+        void return 
     """
     response = requests.get(f'{SERVER}/mail/{mail_id}')
     pprint.pprint(response.json())
 
 def delete_mail(mail_id: str) -> None:
     """
-     Returns: 
-        The boolean of whether the entry has been removed from the dictionary. 
+    Retrieves server information -- specifically the list of mail IDs, and deletes the information of 
+    the id. This will delete the mail id and essentially remove it from the inbox dictionary.
+    Json information includes:
+    - id
+    
+    Args:
+        mail_id (str): the unique id of each message
+        
+    Returns: 
+        void return
     """
     response = requests.delete(f'{SERVER}/mail/{mail_id}')
     pprint.pprint(response.json())
