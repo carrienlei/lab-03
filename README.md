@@ -15,3 +15,6 @@ According to the definition of "resources" provided in the AwS article, the reso
 
 Answer for Question 3: 
 The PUT methond is the REST Method not used in out mail server. We can extend out server to use this method by creating a function that will require a set of three parameters, the url, params or data, and the arguments. (Ishraq Rahman)
+
+Answer for Question 4:
+API keys are used for many RESTful APIs as a way to authorize and authenticate API requests from the client. This way, the server can track and identify individual clients, monitor usage, and enforce rate limiting and other access controls (preventing unauthorized access and abuse of the API). (https://cloud.google.com/endpoints/docs/openapi/when-why-api-key) 
